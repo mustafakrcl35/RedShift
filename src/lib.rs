@@ -3,6 +3,7 @@ use ark_ff::Field;
 use ark_poly::Polynomial;
 
 pub mod commitment;
+pub mod domain;
 pub mod polynomial;
 pub mod prover;
 pub mod verifier;
