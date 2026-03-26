@@ -4,8 +4,10 @@ use ark_poly::Polynomial;
 
 pub mod commitment;
 pub mod domain;
+pub mod fri;
 pub mod polynomial;
 pub mod prover;
+pub mod transcript;
 pub mod verifier;
 
 /// Computes the relative Hamming distance between two polynomials over a given domain.
