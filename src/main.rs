@@ -1,28 +1,11 @@
 use ark_bls12_381::Fr as Fp;
-use ark_ff::{Field, UniformRand};
+use ark_ff::UniformRand;
 use ark_poly::{
-    univariate::DensePolynomial, EvaluationDomain, Polynomial, Radix2EvaluationDomain,
-    DenseUVPolynomial,  // <-- Add this import
+    univariate::DensePolynomial, EvaluationDomain, Radix2EvaluationDomain,
+    DenseUVPolynomial,
 };
-use ark_std::rand::Rng;
 use ark_std::test_rng;
-
-fn relative_hamming_distance<F: Field>(
-    f: &DensePolynomial<F>,
-    g: &DensePolynomial<F>,
-    domain: &[F],
-) -> f64 {
-    let mut mismatch_count = 0;
-
-    for &x in domain.iter() {
-        if f.evaluate(&x) != g.evaluate(&x) {
-            mismatch_count += 1;
-        }
-    }
-
-    mismatch_count as f64 / domain.len() as f64
-}
-
+use redshift::relative_hamming_distance;
 
 fn main() {
     let rng = &mut test_rng();

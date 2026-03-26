@@ -2,6 +2,10 @@ use ark_poly::univariate::DensePolynomial;
 use ark_ff::Field;
 use ark_poly::Polynomial;
 
+pub mod commitment;
+pub mod polynomial;
+pub mod prover;
+pub mod verifier;
 
 /// Computes the relative Hamming distance between two polynomials over a given domain.
 pub fn relative_hamming_distance<F: Field>(
